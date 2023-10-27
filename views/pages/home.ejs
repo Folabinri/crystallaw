@@ -1,0 +1,601 @@
+<% layout('../layouts/boilerplate')%>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+  integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+  crossorigin="anonymous"
+/>
+<link
+  href="https://fonts.googleapis.com/css?family=Oswald:500"
+  rel="stylesheet"
+/>
+<script>
+  !(function (e) {
+    "undefined" == typeof module ? (this.charming = e) : (module.exports = e);
+  })(function (e, n) {
+    "use strict";
+    n = n || {};
+    var t = n.tagName || "span",
+      o = null != n.classPrefix ? n.classPrefix : "char",
+      r = 1,
+      a = function (e) {
+        for (
+          var n = e.parentNode, a = e.nodeValue, c = a.length, l = -1;
+          ++l < c;
+
+        ) {
+          var d = document.createElement(t);
+          o && ((d.className = o + r), r++),
+            d.appendChild(document.createTextNode(a[l])),
+            n.insertBefore(d, e);
+        }
+        n.removeChild(e);
+      };
+    return (
+      (function c(e) {
+        for (
+          var n = [].slice.call(e.childNodes), t = n.length, o = -1;
+          ++o < t;
+
+        )
+          c(n[o]);
+        e.nodeType === Node.TEXT_NODE && a(e);
+      })(e),
+      e
+    );
+  });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<section class="section">
+  <div class="swiper-container slideshow">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide slide">
+        <div
+          class="slide-image"
+          style="background-image: url('img/handshake.jpg')"
+        ></div>
+        <span class="slide-title">TRUST IS OUR HALLMARK</span>
+      </div>
+
+      <div class="swiper-slide slide">
+        <div
+          class="slide-image"
+          style="background-image: url('img/office.jpg')"
+        ></div>
+        <span class="slide-title">CONVENIENCE</span>
+      </div>
+
+      <div class="swiper-slide slide">
+        <div
+          class="slide-image"
+          style="background-image: url('img/contract.jpg')"
+        ></div>
+        <span class="slide-title">EXCELLENCE</span>
+      </div>
+
+      <div class="swiper-slide slide">
+        <div
+          class="slide-image"
+          style="background-image: url('img/ideas.jpg')"
+        ></div>
+        <span class="slide-title">INNOVATION</span>
+      </div>
+    </div>
+
+    <div class="slideshow-pagination"></div>
+
+    <div class="slideshow-navigation">
+      <div class="slideshow-navigation-button prev">
+        <span class="fas fa-chevron-left"></span>
+      </div>
+      <div class="slideshow-navigation-button next">
+        <span class="fas fa-chevron-right"></span>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // The Slideshow class.
+  class Slideshow {
+    constructor(el) {
+      this.DOM = { el: el };
+
+      this.config = {
+        slideshow: {
+          delay: 3000,
+          pagination: {
+            duration: 4,
+          },
+        },
+      };
+
+      // Set the slideshow
+      this.init();
+    }
+    init() {
+      var self = this;
+
+      // Charmed title
+      this.DOM.slideTitle = this.DOM.el.querySelectorAll(".slide-title");
+      this.DOM.slideTitle.forEach((slideTitle) => {
+        charming(slideTitle);
+      });
+
+      // Set the slider
+      this.slideshow = new Swiper(this.DOM.el, {
+        loop: true,
+        autoplay: {
+          delay: this.config.slideshow.delay,
+          disableOnInteraction: false,
+        },
+        speed: 500,
+        preloadImages: true,
+        updateOnImagesReady: true,
+
+        // lazy: true,
+        // preloadImages: false,
+
+        pagination: {
+          el: ".slideshow-pagination",
+          clickable: true,
+          bulletClass: "slideshow-pagination-item",
+          bulletActiveClass: "active",
+          clickableClass: "slideshow-pagination-clickable",
+          modifierClass: "slideshow-pagination-",
+          renderBullet: function (index, className) {
+            var slideIndex = index,
+              number = index <= 8 ? "0" + (slideIndex + 1) : slideIndex + 1;
+
+            var paginationItem = '<span class="slideshow-pagination-item">';
+            paginationItem +=
+              '<span class="pagination-number">' + number + "</span>";
+            paginationItem =
+              index <= 8
+                ? paginationItem +
+                  '<span class="pagination-separator"><span class="pagination-separator-loader"></span></span>'
+                : paginationItem;
+            paginationItem += "</span>";
+
+            return paginationItem;
+          },
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: ".slideshow-navigation-button.next",
+          prevEl: ".slideshow-navigation-button.prev",
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+          el: ".swiper-scrollbar",
+        },
+
+        on: {
+          init: function () {
+            self.animate("next");
+          },
+        },
+      });
+
+      // Init/Bind events.
+      this.initEvents();
+    }
+    initEvents() {
+      this.slideshow.on("paginationUpdate", (swiper, paginationEl) =>
+        this.animatePagination(swiper, paginationEl)
+      );
+      //this.slideshow.on('paginationRender', (swiper, paginationEl) => this.animatePagination());
+
+      this.slideshow.on("slideNextTransitionStart", () => this.animate("next"));
+
+      this.slideshow.on("slidePrevTransitionStart", () => this.animate("prev"));
+    }
+    animate(direction = "next") {
+      // Get the active slide
+      (this.DOM.activeSlide = this.DOM.el.querySelector(
+        ".swiper-slide-active"
+      )),
+        (this.DOM.activeSlideImg =
+          this.DOM.activeSlide.querySelector(".slide-image")),
+        (this.DOM.activeSlideTitle =
+          this.DOM.activeSlide.querySelector(".slide-title")),
+        (this.DOM.activeSlideTitleLetters =
+          this.DOM.activeSlideTitle.querySelectorAll("span"));
+
+      // Reverse if prev
+      this.DOM.activeSlideTitleLetters =
+        direction === "next"
+          ? this.DOM.activeSlideTitleLetters
+          : [].slice.call(this.DOM.activeSlideTitleLetters).reverse();
+
+      // Get old slide
+      this.DOM.oldSlide =
+        direction === "next"
+          ? this.DOM.el.querySelector(".swiper-slide-prev")
+          : this.DOM.el.querySelector(".swiper-slide-next");
+      if (this.DOM.oldSlide) {
+        // Get parts
+        (this.DOM.oldSlideTitle =
+          this.DOM.oldSlide.querySelector(".slide-title")),
+          (this.DOM.oldSlideTitleLetters =
+            this.DOM.oldSlideTitle.querySelectorAll("span"));
+        // Animate
+        this.DOM.oldSlideTitleLetters.forEach((letter, pos) => {
+          TweenMax.to(letter, 0.5, {
+            ease: Quart.easeIn,
+            delay: (this.DOM.oldSlideTitleLetters.length - pos - 1) * 0.04,
+            y: "50%",
+            opacity: 0,
+          });
+        });
+      }
+
+      // Animate title
+      this.DOM.activeSlideTitleLetters.forEach((letter, pos) => {
+        TweenMax.to(letter, 0.6, {
+          ease: Back.easeOut,
+          delay: pos * 0.05,
+          startAt: { y: "50%", opacity: 0 },
+          y: "0%",
+          opacity: 1,
+        });
+      });
+
+      // Animate background
+      TweenMax.to(this.DOM.activeSlideImg, 1.5, {
+        ease: Expo.easeOut,
+        startAt: { x: direction === "next" ? 200 : -200 },
+        x: 0,
+      });
+
+      //this.animatePagination()
+    }
+    animatePagination(swiper, paginationEl) {
+      // Animate pagination
+      this.DOM.paginationItemsLoader = paginationEl.querySelectorAll(
+        ".pagination-separator-loader"
+      );
+      this.DOM.activePaginationItem = paginationEl.querySelector(
+        ".slideshow-pagination-item.active"
+      );
+      this.DOM.activePaginationItemLoader =
+        this.DOM.activePaginationItem.querySelector(
+          ".pagination-separator-loader"
+        );
+
+      console.log(swiper.pagination);
+      // console.log(swiper.activeIndex);
+
+      // Reset and animate
+      TweenMax.set(this.DOM.paginationItemsLoader, { scaleX: 0 });
+      TweenMax.to(
+        this.DOM.activePaginationItemLoader,
+        this.config.slideshow.pagination.duration,
+        {
+          startAt: { scaleX: 0 },
+          scaleX: 1,
+        }
+      );
+    }
+  }
+
+  const slideshow = new Slideshow(document.querySelector(".slideshow"));
+</script>
+
+<!-- ======= About Boxes Section ======= -->
+<section id="about-boxes" class="about-boxes">
+  <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div
+        class="col-lg-4 col-md-6 d-flex align-items-stretch"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div class="card">
+          <img src="img/mission.jpg" class="card-img-top" alt="..." />
+          <div class="card-icon">
+            <i class="ri-brush-4-line"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Our Mission</a></h5>
+            <p class="card-text">
+              To render excellent and economically viable services to our
+              Clients while committed to building a legally informed society.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-lg-4 col-md-6 d-flex align-items-stretch"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div class="card">
+          <img src="img/balance.jpg" class="card-img-top" alt="..." />
+          <div class="card-icon">
+            <i class="ri-calendar-check-line"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Client Committment</a></h5>
+            <p class="card-text">
+              We are committed to client care and developing long-term
+              relationships. To this end, our lawyers take adequate
+              responsibility for client relationship in order to ensure that
+              expectations are met.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-lg-4 col-md-6 d-flex align-items-stretch"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
+        <div class="card">
+          <img src="img/africa.jpg" class="card-img-top" alt="..." />
+          <div class="card-icon">
+            <i class="ri-movie-2-line"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><a href="">Our Vision</a></h5>
+            <p class="card-text">
+              To be a solution-driven law firm that delivers excellent results
+              in our Areas of Practice
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Boxes Section -->
+
+<section id="why-us" class="why-us section-bg">
+  <div class="container-fluid" data-aos="fade-up">
+    <div class="row">
+      <div
+        class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch order-2 order-lg-1"
+      >
+        <div class="content">
+          <h3 class="offset-4">WHY CHOOSE US</h3>
+        </div>
+
+        <div class="accordion-list">
+          <ul>
+            <li>
+              <a
+                data-bs-toggle="collapse"
+                class="collapse"
+                data-bs-target="#accordion-list-1"
+                ><span>01</span> Trust is our Hallmark
+                <i class="bx bx-chevron-down icon-show"></i>
+                <i class="bx bx-chevron-up icon-close"></i>
+              </a>
+              <div
+                id="accordion-list-1"
+                class="collapse show"
+                data-bs-parent=".accordion-list"
+              >
+                <p>
+                  The foundation for any relationship is trust. At Crystal Law
+                  Consult, we see trust as a currency greater in value than
+                  money. This is why we invest a lot of our resources in
+                  ensuring that Professionalism, Confidentiality and Integrity
+                  permeate the entire process of our service delivery. Since
+                  Trust is our greatest asset, we offer practical and realistic
+                  advice to legal challenges our Clients may be facing.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <a
+                data-bs-toggle="collapse"
+                data-bs-target="#accordion-list-2"
+                class="collapsed"
+                ><span>02</span> Virtual access to legal services
+                <i class="bx bx-chevron-down icon-show"></i
+                ><i class="bx bx-chevron-up icon-close"></i
+              ></a>
+              <div
+                id="accordion-list-2"
+                class="collapse"
+                data-bs-parent=".accordion-list"
+              >
+                <p>
+                  In this part of the world, time is hardly enough. We
+                  understand the amount of time wasted on logistics and
+                  travelling. We understand that in the 21st Century, time is a
+                  valued and irredeemable asset, this is why we have leveraged
+                  on technology to be able to cater for your legal needs
+                  virtually; thereby, reducing physical meetings to only when
+                  necessary and unavoidable. You can connect with us through any
+                  of our Social Media Platforms or email and be sure to
+                  beginning your legal journey with us as seamless as having a
+                  physical face to face conversation. We have an active client’s
+                  support system that is ready to attend to our client at every
+                  point in time.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <a
+                data-bs-toggle="collapse"
+                data-bs-target="#accordion-list-3"
+                class="collapsed"
+                ><span>03</span> An excellent track record
+                <i class="bx bx-chevron-down icon-show"></i
+                ><i class="bx bx-chevron-up icon-close"></i
+              ></a>
+              <div
+                id="accordion-list-3"
+                class="collapse"
+                data-bs-parent=".accordion-list"
+              >
+                <p>
+                  This is the core value on which our Firm’s ideology is built
+                  upon. We strive for excellence in everything we do. We have
+                  only truly won when our Client not only wins but enjoyed every
+                  bit of the process leading to ‘his’ victory.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <a
+                data-bs-toggle="collapse"
+                data-bs-target="#accordion-list-4"
+                class="collapsed"
+                ><span>04</span> Innovative approach to legal services
+                <i class="bx bx-chevron-down icon-show"></i
+                ><i class="bx bx-chevron-up icon-close"></i
+              ></a>
+              <div
+                id="accordion-list-4"
+                class="collapse"
+                data-bs-parent=".accordion-list"
+              >
+                <p>
+                  Change is constant. Through flexible approach, we have been
+                  able to maintain a competitive edge. We are strong advocates
+                  of Alternative means to Dispute Resolution, because it is a
+                  relatively cheaper and faster alternative to litigation. The
+                  future of dispute resolution is in ADR. We have a dynamic team
+                  that doesn’t just understand the law but understand the
+                  digital trends to ensure that justice is not delayed or
+                  denied.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
+        style="background-image: url('img/At the office-pana.png')"
+        data-aos="zoom-in"
+        data-aos-delay="150"
+      >
+        &nbsp;
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Why Us Section -->
+
+<section id="services" class="services section-bg about-boxes">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2 class="offset-5 mb-3">Services</h2>
+    </div>
+
+    <div class="row">
+      <div
+        class="col-xl-3 col-md-6 d-flex align-items-stretch"
+        data-aos="zoom-in"
+        data-aos-delay="100"
+      >
+        <div class="icon-box">
+          <div class="icon"><i class="bx bxl-dribbble"></i></div>
+          <h4><a href="">Corpoate and commercial law</a></h4>
+          <p>Corpoate and commercial law</p>
+        </div>
+      </div>
+
+      <div
+        class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+      >
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-file"></i></div>
+          <h4><a href="">Real Estate and Property Law</a></h4>
+          <p>Real Estate and Property Law</p>
+        </div>
+      </div>
+
+      <div
+        class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
+        data-aos="zoom-in"
+        data-aos-delay="300"
+      >
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-tachometer"></i></div>
+          <h4><a href="">Family Law</a></h4>
+          <p>Family Law</p>
+        </div>
+      </div>
+
+      <div
+        class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
+        data-aos="zoom-in"
+        data-aos-delay="400"
+      >
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-layer"></i></div>
+          <h4><a href="">Intellectual property</a></h4>
+          <p>Intellectual Property</p>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div
+        class="col-xl-3 col-md-6 d-flex align-items-stretch"
+        data-aos="zoom-in"
+        data-aos-delay="100"
+      >
+        <div class="icon-box">
+          <div class="icon"><i class="bx bxl-dribbble"></i></div>
+          <h4><a href="">Debt Recovery</a></h4>
+          <p>Debt Recovery</p>
+        </div>
+      </div>
+
+      <div
+        class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+      >
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-file"></i></div>
+          <h4><a href="">Technology</a></h4>
+          <p>Technology</p>
+        </div>
+      </div>
+
+      <div
+        class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
+        data-aos="zoom-in"
+        data-aos-delay="300"
+      >
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-tachometer"></i></div>
+          <h4><a href="">Civil and Criminal Litigation</a></h4>
+          <p>Civil and Criminal Litigation</p>
+        </div>
+      </div>
+
+      <div
+        class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0"
+        data-aos="zoom-in"
+        data-aos-delay="400"
+      >
+        <div class="icon-box">
+          <div class="icon"><i class="bx bx-layer"></i></div>
+          <h4><a href="">Dispute Resolution</a></h4>
+          <p>Dispute Resolution</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Services Section -->
