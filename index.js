@@ -7,7 +7,7 @@ const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
 const app = express()
 const path = require ('path')
-const port = 3000
+const port = process.env.PORT || 3000;
 // app.use(express.static('img'));
 app. use(express.static(path. join(__dirname, 'public')));
 
