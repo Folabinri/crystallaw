@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+  require('dotenv').config();
+}
+
 const express = require('express');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
@@ -34,3 +38,5 @@ app.get('/contact', (req, res) => {
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)
 })
+
+module.exports = app;
