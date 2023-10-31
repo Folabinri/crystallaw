@@ -19,6 +19,7 @@ app.set ('views', path.join(__dirname, '/views/pages'));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
+
 app.get('/', (req, res) => {
   res.render('home')
 })
