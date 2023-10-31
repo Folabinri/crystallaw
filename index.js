@@ -21,18 +21,23 @@ app.use(methodOverride('_method'));
 
 
 app.get('/', (req, res) => {
+  res.locals.title = "Home"; 
   res.render('home')
 })
 app.get('/about', (req, res) => {
+  res.locals.title = "About"; 
   res.render('about')
 })
 app.get('/practice', (req, res) => {
+  res.locals.title = "Practice"; 
   res.render('practice')
 })
 app.get('/team', (req, res) => {
+  res.locals.title = "Team"; 
   res.render('team')
 })
 app.get('/contact', (req, res) => {
+  res.locals.title = "Contact"; 
   res.render('contact')
 })
 
