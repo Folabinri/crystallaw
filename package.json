@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines":{
+  "engines": {
     "node": "18.x"
   },
   "scripts": {
@@ -19,6 +19,10 @@
     "ejs": "^3.1.9",
     "ejs-mate": "^4.0.0",
     "express": "^4.18.2",
-    "method-override": "^3.0.0"
+    "express-mongo-sanitize": "^2.2.0",
+    "helmet": "^7.0.0",
+    "joi": "^17.11.0",
+    "method-override": "^3.0.0",
+    "sanitize-html": "^2.11.0"
   }
 }
