@@ -34,7 +34,10 @@ const scriptSrcUrls = [
     "https://cdn.jsdelivr.net",
     "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js",
-    "https://code.jquery.com/jquery-1.12.0.min.js"
+    "https://code.jquery.com/jquery-1.12.0.min.js",
+    "https://code.jquery.com/jquery-3.5.1.slim.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"
 ];
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com/",
@@ -71,8 +74,6 @@ app.use(
                 "'self'",
                 "blob:",
                 "data:",
-                "https://res.cloudinary.com/douqbebwk/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
-                "https://images.unsplash.com/",
                 "https://bootdey.com/",
                 "https://demo.tortoizthemes.com/"
             ],
