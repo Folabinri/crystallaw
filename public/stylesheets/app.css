@@ -16,7 +16,7 @@ body {
 }
 
 .navbar {
-  background-color: #888888;
+  background-color: #888888 !important;
 }
 
 .carousel .carousel-item {
@@ -57,21 +57,14 @@ body {
   overflow: hidden;
   scale: 2;
 }
-ul {
+/* ul {
   list-style-type: none;
-}
+} */
 @keyframes kenny {
   100% {
     opacity: 0;
     scale: 1;
   }
-}
-.passion {
-  object-fit: cover;
-  /* max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto; */
 }
 
 .subscribe-area {
@@ -128,7 +121,7 @@ ul {
   background: #ffff;
   border: none;
   border-radius: 30px;
-  color: #4b5d73;
+  color: black;
   display: inline-block;
   font-size: 18px;
   font-weight: 400;
@@ -180,7 +173,7 @@ ul {
   text-align: center;
   border-radius: 50%;
   background-color: #f9e6d4;
-  color: #fba543;
+  color: #ac8454;
   font-size: 14px;
   -webkit-transition: all all 0.5s ease-out 0s;
   -moz-transition: all all 0.5s ease-out 0s;
@@ -201,11 +194,11 @@ ul {
 }
 .deneb_footer .widget_wrapper .widget_link ul li a {
   text-transform: capitalize;
-  color: #7a808d;
+  color: black;
 }
 .deneb_footer .widget_wrapper .widget_link ul li a:hover,
 .deneb_footer .widget_wrapper .widget_link ul li a:focus {
-  color: #feb000;
+  color: #ac8454;
 }
 .deneb_footer .widget_wrapper .widget_contact .contact_info .single_info {
   max-width: 250px;
@@ -215,8 +208,8 @@ ul {
 }
 .deneb_footer .widget_wrapper .widget_contact .contact_info .single_info .icon {
   font-size: 25px;
-  color: #feb000;
-  margin-right: 10px;
+  color: #ac8454;
+  margin-right: 5px;
 }
 .deneb_footer
   .widget_wrapper
@@ -226,7 +219,7 @@ ul {
   .info
   p
   a {
-  color: #7a808d;
+  color: black;
 }
 .deneb_footer
   .widget_wrapper
@@ -247,10 +240,10 @@ ul {
   text-align: center;
 }
 .deneb_footer .copyright_area .copyright_text p {
-  color: #011a3e;
+  color: black;
 }
 .deneb_footer .copyright_area .copyright_text p span {
-  color: #feb000;
+  color: #ac8454;
 }
 .deneb_cta .cta_wrapper {
   padding: 45px 50px 42px;
@@ -259,10 +252,10 @@ ul {
   margin: auto;
   margin-bottom: -135px;
   position: relative;
-  background-image: -moz-linear-gradient(0deg, #ffbd27 0%, #feb000 100%);
-  background-image: -webkit-linear-gradient(0deg, #ffbd27 0%, #feb000 100%);
-  background-image: -ms-linear-gradient(0deg, #ffbd27 0%, #feb000 100%);
-  box-shadow: 2.5px 4.33px 15px 0px rgba(254, 176, 0, 0.4);
+  background-image: -moz-linear-gradient(0deg, #00c6fb 0%, #005bea 100%);
+  background-image: -webkit-linear-gradient(0deg, #00c6fb 0%, #005bea 100%);
+  background-image: -ms-linear-gradient(0deg, #00c6fb 0%, #005bea 100%);
+  box-shadow: 2.5px 4.33px 15px 0px rgba(240, 255, 240, 0.4);
   z-index: 1;
 }
 .deneb_cta .cta_wrapper:after {
@@ -314,7 +307,7 @@ ul {
 }
 .deneb_cta .cta_wrapper .button_box .deneb_btn {
   background: #fff;
-  color: #011a3e;
+  color: black;
 }
 .deneb_cta .cta_wrapper .button_box .deneb_btn:hover,
 .deneb_cta .cta_wrapper .button_box .deneb_btn:focus {
@@ -766,9 +759,9 @@ ul {
   top: 50%;
   transform: translateY(-30%);
   bottom: auto;
-  font-family: "Oswald", sans-serif;
-  color: #150803 !important;
-  font-size: 4rem !important;
+  font-family: "Oswald", sans-serif !important;
+  color: black !important;
+  font-size: 3rem !important;
 }
 
 /* .slide-title {
@@ -821,4 +814,10 @@ ul {
 
 .carousel-indicators .active {
   background-color: #ac8454;
+}
+
+.about-footer {
+  background: url("../img/corp.jpg") center top no-repeat fixed !important;
+  background-size: cover;
+  position: relative;
 }
