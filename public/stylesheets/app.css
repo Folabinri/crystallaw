@@ -183,9 +183,9 @@ body {
 }
 .deneb_footer .widget_wrapper .widegt_about .social li a:hover,
 .deneb_footer .widget_wrapper .widegt_about .social li a:focus {
-  background-image: -moz-linear-gradient(0deg, #ffbd27 0%, #feb000 100%);
-  background-image: -webkit-linear-gradient(0deg, #ffbd27 0%, #feb000 100%);
-  background-image: -ms-linear-gradient(0deg, #ffbd27 0%, #feb000 100%);
+  background-image: -moz-linear-gradient(0deg, #00c6fb 0%, #005bea 100%);
+  background-image: -webkit-linear-gradient(0deg, #00c6fb 0%, #005bea 100%);
+  background-image: -ms-linear-gradient(0deg, #00c6fb 0%, #005bea 100%);
   color: #fff;
   box-shadow: 2.5px 4.33px 15px 0px rgba(254, 176, 0, 0.4);
 }

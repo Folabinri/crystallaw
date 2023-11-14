@@ -42,8 +42,6 @@ const scriptSrcUrls = [
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com/",
     "https://stackpath.bootstrapcdn.com/",
-    "https://api.mapbox.com/",
-    "https://api.tiles.mapbox.com/",
     "https://fonts.googleapis.com/",
     "https://use.fontawesome.com/",
     "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
@@ -54,7 +52,6 @@ const styleSrcUrls = [
     "https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css",
     "https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.css",
     "https://use.fontawesome.com/releases/v5.3.1/css/all.css",
-    "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
 ];
 const connectSrcUrls = [
     "https://api.mapbox.com/",
