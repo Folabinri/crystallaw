@@ -762,6 +762,7 @@ body {
   font-family: "Oswald", sans-serif !important;
   color: black !important;
   font-size: 3rem !important;
+  font-weight: 900;
 }
 
 .slideshow-navigation-button {
