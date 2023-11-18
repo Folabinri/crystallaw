@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <style>
+      @import url("https://fonts.cdnfonts.com/css/effra-heavy?styles=16535,16534,16538,16540,16536,16537,16539,16533,16532");
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="/img/logo(White)-02 (1).png"
+      type="image/icon type"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/effra-heavy?styles=16535,16534,16538,16540,16536,16537,16539,16533,16532"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/app.css" />
+    <link rel="stylesheet" href="/stylesheets/team.css" />
+    <link rel="stylesheet" href="/stylesheets/contact.css" />
+    <link rel="stylesheet" href="/stylesheets/practice.css" />
+    <link rel="stylesheet" href="/stylesheets/about.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css"
+    />
+  </head>
+
+  <body class="d-flex flex-column vh-100">
+    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary py-1">
+      <div class="container-fluid fw-bolder">
+        <!-- <a class="navbar-brand fs-5 ms-5" href="#">CRYSTAL LAW</a> -->
+        <a class="navbar-brand ms-5" href="#">
+          <img
+            src="/img/logo(Full color)-01.png"
+            alt="Crystal Law Logo"
+            width="250"
+            height="100"
+          />
+        </a>
+        <button
+          class="navbar-toggler mb-3"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="d-flex justify-content-center collapse navbar-collapse"
+          id="navbarNavAltMarkup"
+        >
+          <div
+            class="nav-underline justify-content-center navbar-nav fs-5 fw-semibold collapse navbar-collapse"
+            id="navbarNavAltMarkup"
+          >
+            <a class="ms-5 nav-link" aria-current="page" href="/">Home</a>
+            <a class="ms-5 nav-link" href="/about">About</a>
+            <a class="ms-5 nav-link" href="/practice">Practice</a>
+            <a class="ms-5 nav-link" href="/team">Team</a>
+            <a class="ms-5 nav-link" href="/contact">Contact us</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.12.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $("#testimonial-slider").owlCarousel({
+          items: 1,
+          itemsDesktop: [1000, 2],
+          itemsDesktopSmall: [979, 1],
+          itemsTablet: [768, 1],
+          pagination: false,
+          navigation: true,
+          slideSpeed: 1000,
+          singleItem: true,
+          transitionStyle: "goDown",
+          navigationText: ["", ""],
+          autoPlay: false,
+        });
+      });
+    </script>
+
+    <div class="container mt-5 mb-5">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="testimonial-slider" class="owl-carousel">
+            <div class="testimonial">
+              <div class="pic">
+                <img src="img/barr2.jpeg" alt="" />
+              </div>
+              <div class="testimonial-content">
+                <p class="description flex-grow-1 ms-3">
+                  Paul is a Partner at Crystal law consult. An intelligent,
+                  passionate and goal-oriented lawyer who is devoted to applying
+                  his out -of -the- box thinking and thoroughness in the
+                  delivery of top-notch services to client’s satisfaction. He
+                  thinks through complex legal issues to provide efficient
+                  solutions and this makes him an asset to the firm.
+                </p>
+                <p class="description flex-grow-1 ms-3">
+                  An alumnus of Ambrose Alli University with many years
+                  experience in corporate/ commercial, business and real estate
+                  legal practice.
+                </p>
+                <p class="description flex-grow-1 ms-3">
+                  Paul is an astute researcher with modern-digital and
+                  technological related skills which he uses in achieving
+                  quicker desired results.
+                </p>
+                <p class="description flex-grow-1 ms-3">
+                  A former Associate Partner at Ogunwale and Associates, where
+                  he was involved in corporate/ commercial, property management,
+                  Family and Real estate practice.
+                </p>
+                <p class="description flex-grow-1 ms-3">
+                  Paul has advised different corporate organizations and clients
+                  both local and international on matters related to corporate
+                  governance, employment and regulatory compliances among others
+                  which include intellectual property and Real estate. He is a
+                  seasoned negotiator and has resolved different disputes on
+                  behalf of clients.
+                </p>
+                <ul>
+                    <h4>Academic Qualifications</h4>
+                    <li>Ambrose Alli University (L.L.B)</li>
+                    <li>Nigerian Law School (B.L)</li>
+                  </ul>
+                </p>
+                <p class="description flex-grow-1 ms-3">
+                    <ul>
+                      <h4>Professional Associations:</h4>
+                      <li>Member, Nigerian Bar Association (NBA)</li>
+                      <li>Member, Digital Lawyers Forum (DLF)</li>
+                    </ul>
+                  </p>
+                  <p class="description flex-grow-1 ms-3">
+                    <ul>
+                      <h4>Practice Areas:</h4>
+                      <li>Property and Real Estate Law</li>
+                      <li>Corporate and Commercial Law</li>
+                      <li>Business Law</li>
+                      <li>Family Law</li>
+                    </ul>
+                  </p>
+                <h4 class="testimonial-title">
+                  Paul Ohikhena,
+                  <span><h6>Esq.</h6></span>
+                  <small class="post">Partner</small>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -40,6 +40,8 @@ const scriptSrcUrls = [
   "https://code.jquery.com/jquery-3.5.1.slim.min.js",
   "https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js",
   "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js",
+  "https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css",
+  "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css",
 ];
 const styleSrcUrls = [
   "https://kit-free.fontawesome.com/",
@@ -54,6 +56,7 @@ const styleSrcUrls = [
   "https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css",
   "https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.css",
   "https://use.fontawesome.com/releases/v5.3.1/css/all.css",
+  "https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css",
 ];
 const connectSrcUrls = [
   "https://api.mapbox.com/",
@@ -74,6 +77,7 @@ const fontSrcUrls = [
   "https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css",
   "https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.css",
   "https://use.fontawesome.com/releases/v5.3.1/css/all.css",
+  "https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css",
 ];
 
 app.use(
@@ -92,7 +96,7 @@ app.use(
         "https://bootdey.com/",
         "https://demo.tortoizthemes.com/",
       ],
-      fontSrc: ["'self'", "'unsafe-inline'", ...fontSrcUrls],
+      fontSrc: ["'self' data:", "'unsafe-inline'", ...fontSrcUrls],
     },
   })
 );
@@ -116,6 +120,26 @@ app.get("/team", (req, res) => {
 app.get("/contact", (req, res) => {
   res.locals.title = "Contact";
   res.render("contact");
+});
+app.get("/barrister", (req, res) => {
+  res.locals.title = "Tomiwa Ogunwale";
+  res.render("barrister");
+});
+app.get("/paul", (req, res) => {
+  res.locals.title = "Paul O. Ohikhena";
+  res.render("paul");
+});
+app.get("/olatunji", (req, res) => {
+  res.locals.title = "Olatunji Adebanke";
+  res.render("olatunji");
+});
+app.get("/nwabueze", (req, res) => {
+  res.locals.title = "S.C. Nwabueze";
+  res.render("nwabueze");
+});
+app.get("/michael", (req, res) => {
+  res.locals.title = "Michael Okonji";
+  res.render("michael");
 });
 
 app.listen(port, () => {
