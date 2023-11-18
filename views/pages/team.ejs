@@ -58,7 +58,7 @@
           </h6>
           <p class="designation">Managing Partner</p>
           <button
-            class="btn btn-sm btn-primary"
+            class="button btn btn-sm btn-primary"
             onclick="window.location.href='/tomiwa'"
           >
             Profile
@@ -222,3 +222,27 @@
     </div>
   </div>
 </div>
+
+<script>
+  const button = document.getElementById("button");
+function clickFunc(e){
+  if(e.touches){
+    e.preventDefault(); //Try to comment it out: double triggers on short tap
+    button.removeEventListener("touchend", clickFunc);
+    button.addEventListener("click", clickFunc);
+    console.log('tapped!');
+  }else{
+	  console.log('clicked!');
+  }
+  //
+  //Your code here
+}
+function touchFunc(){
+  button.removeEventListener("click", clickFunc);
+  button.addEventListener("touchend", clickFunc);
+}
+window.onload=function(){
+  button.addEventListener("click", clickFunc);
+  button.addEventListener("touchstart", touchFunc);
+}
+</script>

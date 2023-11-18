@@ -808,3 +808,7 @@ body {
   background-size: cover;
   position: relative;
 }
+
+#button {
+  user-select: none; /*find crossbrowser solution!*/
+}
