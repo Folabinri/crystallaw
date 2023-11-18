@@ -121,9 +121,9 @@ app.get("/contact", (req, res) => {
   res.locals.title = "Contact";
   res.render("contact");
 });
-app.get("/barrister", (req, res) => {
+app.get("/tomiwa", (req, res) => {
   res.locals.title = "Tomiwa Ogunwale";
-  res.render("barrister");
+  res.render("tomiwa");
 });
 app.get("/paul", (req, res) => {
   res.locals.title = "Paul O. Ohikhena";
