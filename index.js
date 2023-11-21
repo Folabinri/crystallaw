@@ -28,7 +28,6 @@ app.use(
   })
 );
 app.use(helmet());
-helmet.contentSecurityPolicy.dangerouslyDisableDefaultSrc;
 // app.use(
 //   helmet({
 //     contentSecurityPolicy: false,
@@ -90,7 +89,6 @@ const fontSrcUrls = [
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
-      useDefaults: false,
       defaultSrc: [],
       connectSrc: ["'self'", ...connectSrcUrls],
       scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
