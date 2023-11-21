@@ -29,12 +29,12 @@ app.use(
 );
 app.use(helmet());
 helmet.contentSecurityPolicy.dangerouslyDisableDefaultSrc;
-app.use(
-  helmet({
-    contentSecurityPolicy: false,
-    xDownloadOptions: false,
-  })
-);
+// app.use(
+//   helmet({
+//     contentSecurityPolicy: false,
+//     xDownloadOptions: false,
+//   })
+// );
 
 const scriptSrcUrls = [
   "https://stackpath.bootstrapcdn.com/",
@@ -90,6 +90,7 @@ const fontSrcUrls = [
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
+      useDefaults: false,
       defaultSrc: [],
       connectSrc: ["'self'", ...connectSrcUrls],
       scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
