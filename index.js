@@ -28,24 +28,13 @@ app.use(
   })
 );
 app.use(helmet());
-
+helmet.contentSecurityPolicy.dangerouslyDisableDefaultSrc;
 app.use(
   helmet({
-    contentSecurityPolicy: {
-      directives: {
-        /* ... */
-      },
-      reportOnly: true,
-    },
+    contentSecurityPolicy: false,
+    xDownloadOptions: false,
   })
 );
-
-// app.use(
-//   helmet({
-//     contentSecurityPolicy: false,
-//     xDownloadOptions: false,
-//   })
-// );
 
 // const scriptSrcUrls = [
 //   "https://stackpath.bootstrapcdn.com/",
