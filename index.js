@@ -31,10 +31,21 @@ app.use(helmet());
 
 app.use(
   helmet({
-    contentSecurityPolicy: false,
-    xDownloadOptions: false,
+    contentSecurityPolicy: {
+      directives: {
+        /* ... */
+      },
+      reportOnly: true,
+    },
   })
 );
+
+// app.use(
+//   helmet({
+//     contentSecurityPolicy: false,
+//     xDownloadOptions: false,
+//   })
+// );
 
 // const scriptSrcUrls = [
 //   "https://stackpath.bootstrapcdn.com/",
