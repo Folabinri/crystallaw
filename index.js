@@ -96,7 +96,7 @@ app.use(
         "https://bootdey.com/",
         "https://demo.tortoizthemes.com/",
       ],
-      fontSrc: ["'self' data:", "'unsafe-inline'", ...fontSrcUrls],
+      fontSrc: ["'self'", ...fontSrcUrls],
     },
   })
 );
