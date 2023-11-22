@@ -10,7 +10,7 @@ const path = require("path");
 const port = process.env.PORT || 3000;
 // app.use(express.static('img'));
 app.use(express.static(path.join(__dirname, "public")));
-const helmet = require("helmet");
+// const helmet = require("helmet");
 
 const mongoSanitize = require("express-mongo-sanitize");
 
@@ -27,13 +27,13 @@ app.use(
     replaceWith: "_",
   })
 );
-app.use(helmet());
-app.use(
-  helmet({
-    contentSecurityPolicy: false,
-    xDownloadOptions: false,
-  })
-);
+// app.use(helmet());
+// app.use(
+//   helmet({
+//     contentSecurityPolicy: false,
+//     xDownloadOptions: false,
+//   })
+// );
 
 // const scriptSrcUrls = [
 //   "https://stackpath.bootstrapcdn.com/",
